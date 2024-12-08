@@ -1,0 +1,48 @@
+<div class="home">
+    <!-- Header -->
+    <div class="header">
+      <h1 class="t1">Juan Iglesias</h1>
+      <div class="header-icons">
+        <span>22:21</span>
+        <i class="icon-whatsapp"></i>
+        <i class="icon-cloud"></i>
+      </div>
+    </div>
+  
+    <!-- Balance Card -->
+    <div class="balance-card">
+      <p class="t2">Banco</p>
+      <h2 class="negative">- $552.81 USD</h2>
+      <span>36 transacciones</span>
+    </div>
+  
+    <!-- Budget Card -->
+    <div class="budget-card">
+      <h2 class="t2">Presupuesto</h2>
+      <h3>$856.21 restante de $856.21</h3>
+      <div class="progress-bar">
+        <span>Hoy</span>
+        <div class="progress">
+          <div class="progress-fill" style="width: 0%;"></div>
+        </div>
+        <span>31 dic</span>
+      </div>
+      <p>Puede gastar $27.62/día para 31 más días</p>
+    </div>
+  
+    <!-- Chart Card -->
+    <div class="chart-card">
+      <div class="chart">
+        <canvas id="chart"></canvas>
+      </div>
+      <div class="filters">
+        <button class="filter" [class.active]="activeFilter === 'all'" (click)="changeFilter('all')">Todo</button>
+        <button class="filter" [class.active]="activeFilter === 'expenses'" (click)="changeFilter('expenses')">Gasto</button>
+        <button class="filter" [class.active]="activeFilter === 'income'" (click)="changeFilter('income')">Ingreso</button>
+      </div>
+    </div>
+  
+    <!-- Navigation -->
+    <app-navigation></app-navigation> <!-- Componente de navegación -->
+  </div>
+  

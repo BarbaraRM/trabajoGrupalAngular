@@ -1,0 +1,135 @@
+.home {
+    background-color: #1c1e22; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh; /* Ocupa toda la ventana */
+    display: flex;
+    flex-direction: column; /* Organiza los hijos en columnas */
+    padding: 16px;
+  
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+  
+      h1 {
+        font-size: 70px; /* Grande para destacar el nombre */
+        font-weight: bold;
+        color: #ffffff; /* Blanco */
+        margin: 0;
+      }
+  
+      .header-icons {
+        display: flex;
+        gap: 8px;
+  
+        span {
+          font-size: 14px;
+          color: #cccccc;
+          margin-left: 4px;
+        }
+  
+        i {
+          font-size: 16px;
+          color: #cccccc;
+        }
+      }
+    }
+  
+    .balance-card, .budget-card, .chart-card {
+      background-color: #292c31; /* Fondo más claro */
+      border-radius: 12px;
+      margin-bottom: 16px; /* Espaciado entre tarjetas */
+      padding: 16px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  
+      p, h2, h3, span {
+        margin: 0;
+      }
+    }
+  
+    .negative {
+      color: #ff4d4d; /* Color rojo para números negativos */
+      font-size: 20px; /* Más destacado */
+      font-weight: 600;
+    }
+  
+    .t2 {
+      font-size: 24px; /* Más grande para Banco y Presupuesto */
+      font-weight: 600; /* Resaltado */
+      color: #4caf50; /* Verde */
+      margin-bottom: 8px; /* Espaciado */
+    }
+  
+    .progress-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+  
+      .progress {
+        flex: 1;
+        height: 8px;
+        background-color: #444;
+        border-radius: 4px;
+  
+        .progress-fill {
+          height: 100%;
+          background-color: #4caf50;
+          border-radius: 4px;
+        }
+      }
+    }
+  
+    .filters {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+  
+      .filter {
+        flex: 1;
+        padding: 12px;
+        background-color: #33363b;
+        border-radius: 8px;
+        border: none;
+        color: #ffffff;
+        text-align: center;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+  
+        &.active {
+          background-color: #4caf50; /* Verde activo */
+        }
+  
+        &:hover {
+          background-color: #4caf50; /* Verde al pasar el mouse */
+        }
+      }
+    }
+  
+    .chart-card {
+      flex-grow: 1; /* El gráfico ocupa el espacio restante */
+      canvas {
+        display: block;
+        width: 100% !important; /* El canvas se ajusta al contenedor */
+        height: auto !important; /* Altura automática */
+      }
+    }
+  
+    .navigation {
+      margin: 0;
+      padding: 12px 0;
+      display: flex;
+      justify-content: space-around;
+      background-color: #292c31; /* Fondo similar al diseño */
+  
+      .nav-button {
+        font-size: 16px;
+        color: #ffffff;
+        text-align: center;
+      }
+    }
+  }
+  
