@@ -1,30 +1,30 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
-import { NavigationComponent } from '../navbar/navigation.component'; // Importa el componente Navigation
+import { NavigationComponent } from '../navbar/navigation.component';
+import { IncomeFormComponent } from '../income-form/income-form.component';
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [NavigationComponent] // Agrega NavigationComponent a los imports
+  imports: [NavigationComponent, IncomeFormComponent],
 })
 export class HomeComponent implements AfterViewInit {
-  activeFilter: 'all' | 'expenses' | 'income' = 'all'; // Filtro activo
+  activeFilter: 'all' | 'expenses' | 'income' = 'all';
   chart: any;
+  data: any = { all: [], expenses: [], income: [] };
 
-  data = {
-    all: [500, 300, 200, 400, 100],
-    expenses: [300, 200, 100, 400, 50],
-    income: [200, 100, 100, 0, 50]
-  };
-
-  constructor() {
-    Chart.register(...registerables); // Registra todos los componentes de Chart.js
+  constructor(private dataService: DataService) {
+    Chart.register(...registerables);
   }
 
   ngAfterViewInit() {
-    this.renderChart();
+    this.dataService.data$.subscribe((data) => {
+      this.data = data;
+      this.renderChart();
+    });
   }
 
   changeFilter(filter: 'all' | 'expenses' | 'income') {
@@ -47,38 +47,34 @@ export class HomeComponent implements AfterViewInit {
           {
             label: 'Valores',
             data: this.data[this.activeFilter],
-            borderColor: '#4caf50', // Línea verde
-            backgroundColor: 'rgba(76, 175, 80, 0.2)', // Área bajo la curva
+            borderColor: '#4caf50',
+            backgroundColor: 'rgba(76, 175, 80, 0.2)',
             borderWidth: 2,
-            fill: true
-          }
-        ]
+            fill: true,
+          },
+        ],
       },
       options: {
         responsive: true,
-        maintainAspectRatio: false, // Ajuste para pantallas pequeñas
+        maintainAspectRatio: false,
         plugins: {
-          legend: { display: false }, // Oculta la leyenda
+          legend: { display: false },
           tooltip: {
-            backgroundColor: '#292c31', // Fondo del tooltip
-            titleColor: '#fff', // Color del título
-            bodyColor: '#fff' // Color del texto
-          }
+            backgroundColor: '#292c31',
+            titleColor: '#fff',
+            bodyColor: '#fff',
+          },
         },
         scales: {
           x: {
-            ticks: {
-              color: '#ccc' // Color del texto en eje X
-            }
+            ticks: { color: '#ccc' },
           },
           y: {
-            ticks: {
-              color: '#ccc' // Color del texto en eje Y
-            },
-            beginAtZero: true
-          }
-        }
-      }
+            ticks: { color: '#ccc' },
+            beginAtZero: true,
+          },
+        },
+      },
     });
   }
 }
