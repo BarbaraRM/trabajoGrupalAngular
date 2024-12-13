@@ -4,13 +4,15 @@ import {
   TransactionService,
 } from "../service/transaction.service"; 
 import { CommonModule } from "@angular/common";
+import {TotalCardComponent} from '../total-card/total-card.component';
+import {TransactionTableComponent} from '../transaction-table/transaction-table.component';
 
 @Component({
   selector: "app-transactions",
   standalone: true,
   templateUrl: "./transactions.component.html",
   styleUrls: ["./transactions.component.css"],
-  imports: [CommonModule],
+  imports: [CommonModule,TotalCardComponent,TransactionTableComponent],
 })
 export class TransactionsComponent implements OnInit {
   transactions: Transaction[] = []; 
