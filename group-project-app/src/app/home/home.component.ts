@@ -1,6 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
-import { NavigationComponent } from '../navbar/navigation.component';
 import { IncomeFormComponent } from '../income-form/income-form.component';
 import { DataService } from '../service/data.service';
 
@@ -9,7 +8,7 @@ import { DataService } from '../service/data.service';
   standalone: true,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [NavigationComponent, IncomeFormComponent],
+  imports: [IncomeFormComponent],
 })
 export class HomeComponent implements AfterViewInit {
   activeFilter: 'all' | 'expenses' | 'income' = 'all';

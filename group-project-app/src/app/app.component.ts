@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component } from "@angular/core";
+import { RouterModule, RouterOutlet } from "@angular/router";
+import { NavigationComponent } from "./navbar/navigation.component";
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   standalone: true,
-  template: '<router-outlet></router-outlet>', // Renderiza los componentes según las rutas
-  styleUrls: ['./app.component.scss'],
-  imports: [RouterModule]
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
+  imports: [RouterOutlet, RouterModule, NavigationComponent],
 })
 export class AppComponent {}

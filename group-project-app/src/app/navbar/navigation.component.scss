@@ -1,28 +1,27 @@
 .navigation {
-    display: flex;
-    justify-content: space-around;
-    padding: 12px 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0;
+  cursor: pointer;
+  background-color: #292c31; /* Fondo oscuro */
+  border-top: 1px solid #444; /* Línea superior para separar */
+
+  .nav-button {
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
     cursor: pointer;
-    background-color: #292c31; /* Fondo oscuro */
-    border-top: 1px solid #444; /* Línea superior para separar */
-  
-    .nav-button {
-      font-size: 16px;
-      color: #ffffff;
-      text-align: center;
-      cursor: pointer;
-      border: none;
-      background: none;
-  
-      i {
-        display: block;
-        font-size: 20px;
-        margin-bottom: 4px; /* Espaciado entre ícono y texto */
-      }
-  
-      &:hover {
-        color: #4caf50; /* Verde al pasar el mouse */
-      }
+    border: none;
+    background: none;
+
+    i {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 4px; /* Espaciado entre ícono y texto */
+    }
+
+    &:hover {
+      color: #4caf50; /* Verde al pasar el mouse */
     }
   }
-  
+}
